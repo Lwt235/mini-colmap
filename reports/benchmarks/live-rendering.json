@@ -1,0 +1,192 @@
+{
+  "schema_version": 1,
+  "model_unchanged": true,
+  "maximum_rgb_error": 5.960464477539062e-07,
+  "local_720p": {
+    "before_receive_decode_fps": 45.65667196038397,
+    "after_receive_decode_fps": 59.106245607358105,
+    "before_gpu_ms": 9.649943587375663,
+    "after_gpu_ms": 3.914959461371463,
+    "scope": "Sequential WebSocket receive + JPEG CPU decode; not browser presentation FPS"
+  },
+  "simulated_link": {
+    "scope": "Real Chromium displayed frames; controlled WebSocket emulator: 80 ms RTT, 8 Mbps download; same optimized server and two-request pipeline for both modes. Not measured Windows/SSH FPS.",
+    "conditions": {
+      "rtt_ms": 80,
+      "download_mbps": 8
+    },
+    "runs": [
+      {
+        "adaptive": false,
+        "new_displayed_frames": 31,
+        "display_fps": 3.9564265553359985,
+        "frame_gap_p95_ms": 368.20000076293945,
+        "mean_bytes": 180331.8064516129,
+        "interactive_frames": 0,
+        "final_quality_restored": true
+      },
+      {
+        "adaptive": true,
+        "new_displayed_frames": 114,
+        "display_fps": 14.3678160933478,
+        "frame_gap_p95_ms": 116.89999961853027,
+        "mean_bytes": 40254.271929824565,
+        "interactive_frames": 114,
+        "final_quality_restored": true
+      }
+    ]
+  },
+  "before": {
+    "hardware": {
+      "backend": "gsplat",
+      "gpu_name": "NVIDIA RTX A6000",
+      "gaussian_count": 1000000,
+      "sh_degree": 3,
+      "step": 30000,
+      "jpeg_quality": 95
+    },
+    "platform": "linux",
+    "resolution": [
+      1280,
+      720
+    ],
+    "warmup_seconds": 3.0,
+    "measurement_seconds": 15.0,
+    "actual_frames": 684,
+    "transport_decode_fps": 45.65667196038397,
+    "interval_p95_ms": 24.01103675365448,
+    "metrics": {
+      "render_ms": {
+        "mean": 9.649943587375663,
+        "p50": 9.462783813476562,
+        "p95": 10.090905904769897
+      },
+      "render_wall_ms": {
+        "mean": 9.704908179064766,
+        "p50": 9.513500146567822,
+        "p95": 10.145085025578737
+      },
+      "readback_ms": {
+        "mean": 0.5774690677025165,
+        "p50": 0.5723237991333008,
+        "p95": 0.6173613481223583
+      },
+      "encode_ms": {
+        "mean": 3.411031532379096,
+        "p50": 3.237810917198658,
+        "p95": 4.156052507460117
+      },
+      "client_receive_decode_ms": {
+        "mean": 21.843168075735633,
+        "p50": 21.931876428425312,
+        "p95": 23.947590216994286
+      }
+    },
+    "scope": "Sequential WebSocket receive + JPEG CPU decode; not browser presentation FPS"
+  },
+  "after": {
+    "hardware": {
+      "backend": "gsplat",
+      "gpu_name": "NVIDIA RTX A6000",
+      "gaussian_count": 1000000,
+      "sh_degree": 3,
+      "step": 30000,
+      "jpeg_quality": 95
+    },
+    "platform": "linux",
+    "resolution": [
+      1280,
+      720
+    ],
+    "warmup_seconds": 3.0,
+    "measurement_seconds": 15.0,
+    "actual_frames": 886,
+    "transport_decode_fps": 59.106245607358105,
+    "interval_p95_ms": 20.723356399685144,
+    "metrics": {
+      "render_ms": {
+        "mean": 3.914959461371463,
+        "p50": 3.870527982711792,
+        "p95": 4.430544018745422
+      },
+      "render_wall_ms": {
+        "mean": 3.9839233349563035,
+        "p50": 3.930133767426014,
+        "p95": 4.517777357250452
+      },
+      "readback_ms": {
+        "mean": 0.5560752538371302,
+        "p50": 0.5430039018392563,
+        "p95": 0.6302506662905216
+      },
+      "encode_ms": {
+        "mean": 4.900847612112828,
+        "p50": 4.2868489399552345,
+        "p95": 6.638296414166689
+      },
+      "client_receive_decode_ms": {
+        "mean": 16.858150131378164,
+        "p50": 16.686241142451763,
+        "p95": 20.676547195762396
+      }
+    },
+    "scope": "Sequential WebSocket receive + JPEG CPU decode; not browser presentation FPS"
+  },
+  "native_inference": {
+    "parity": [
+      {
+        "image_id": 62,
+        "max_abs": 2.384185791015625e-07,
+        "mean_abs": 1.5638008221685595e-08,
+        "psnr_db": 150.20198950487838
+      },
+      {
+        "image_id": 99,
+        "max_abs": 2.980232238769531e-07,
+        "mean_abs": 1.2078597677600555e-08,
+        "psnr_db": 151.4839603803288
+      },
+      {
+        "image_id": 124,
+        "max_abs": 5.960464477539062e-07,
+        "mean_abs": 3.912892765356446e-08,
+        "psnr_db": 144.52353874665155
+      }
+    ],
+    "timings": {
+      "learner": {
+        "mean_ms": 5.77486687827678,
+        "p95_ms": 7.101884111762047
+      },
+      "fused": {
+        "mean_ms": 2.349216402286575,
+        "p95_ms": 2.6394501328468323
+      }
+    },
+    "transport": {
+      "final": {
+        "render_ms": 2.2344284057617188,
+        "readback_ms": 0.5672540929582384,
+        "encode_ms": 2.88258513642682,
+        "bytes": 160808.0,
+        "width": 1280,
+        "height": 720
+      },
+      "interactive": {
+        "render_ms": 1.5907626549402873,
+        "readback_ms": 0.27880217466089463,
+        "encode_ms": 1.010495548446973,
+        "bytes": 37758.0,
+        "width": 768,
+        "height": 432
+      }
+    },
+    "scope": "Same real cameras, covariance/opacity/SH/model; no pruning; numerical RGB control before JPEG; local timing, not Windows tunnel FPS"
+  },
+  "limitations": [
+    "Historical saved measurements; repository cleanup does not rerun GPU work.",
+    "Sequential WebSocket receive/decode FPS, Chromium displayed frames and physical monitor refresh are different quantities.",
+    "Controlled 80 ms RTT / 8 Mbps emulator is not a measured Windows SSH connection.",
+    "Native timing key learner identifies the pre-fusion rendering implementation."
+  ]
+}

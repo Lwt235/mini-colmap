@@ -1,0 +1,9 @@
+{
+  "method": "3dgs",
+  "iterations": 2,
+  "image_downscale": 16,
+  "preview_every": 1,
+  "device": "cpu",
+  "gaussian": {"max_gaussians": 128, "densify_every": 0, "sh_degree": 3,
+               "sh_degree_interval": 0, "backend": "reference"}
+}

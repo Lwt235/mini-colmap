@@ -1,0 +1,15 @@
+{
+  "method": "3dgs",
+  "device": "cuda",
+  "iterations": 7000,
+  "image_downscale": 4,
+  "preview_every": 500,
+  "background": "black",
+  "gaussian": {
+    "max_gaussians": 100000,
+    "sh_degree": 3,
+    "sh_degree_interval": 1000,
+    "backend": "gsplat",
+    "densify_every": 0
+  }
+}

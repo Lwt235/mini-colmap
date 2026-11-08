@@ -1,0 +1,21 @@
+{
+  "method": "3dgs",
+  "device": "cuda",
+  "iterations": 300,
+  "image_downscale": 4,
+  "preview_every": 100,
+  "background": "black",
+  "gaussian": {
+    "backend": "gsplat",
+    "max_gaussians": 20000,
+    "sh_degree": 3,
+    "optimizer_state": "preserve",
+    "lr_mode": "grouped",
+    "loss": "l1_ssim",
+    "density_strategy": "adaptive",
+    "densify_every": 50,
+    "densify_start": 50,
+    "densify_stop": 250,
+    "opacity_reset_every": 0
+  }
+}

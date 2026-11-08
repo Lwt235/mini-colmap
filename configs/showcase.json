@@ -1,0 +1,19 @@
+{
+  "release": "2026-10-22 · portfolio prototype",
+  "selections": [
+    {
+      "title": "语言定位水槽",
+      "selection_id": "object-64e1f2f4406ab41fce289bf5",
+      "description": "进入真实三维高斯场景，查看高亮、单独显示、恢复全场景，并导出独立选区。",
+      "id": "sink",
+      "preview_file": "portfolio-sink.jpg"
+    },
+    {
+      "id": "knife",
+      "title": "语言定位刀具",
+      "selection_id": "object-b7fc3a850ee2f4c9c5325030",
+      "preview_file": "portfolio-knife.jpg",
+      "description": "几何入画筛选后通过多视角检查。查看壁挂刀具的三维高亮、隔离和独立导出。"
+    }
+  ]
+}

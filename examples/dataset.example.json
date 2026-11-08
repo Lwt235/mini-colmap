@@ -1,0 +1,11 @@
+{
+  "cameras": [
+    {"id": 1, "width": 640, "height": 480, "K": [[800, 0, 320], [0, 800, 240], [0, 0, 1]]}
+  ],
+  "images": [
+    {"id": 1, "name": "view01.jpg", "camera_id": 1, "path": "images/view01.jpg"},
+    {"id": 2, "name": "view02.jpg", "camera_id": 1, "path": "images/view02.jpg"},
+    {"id": 3, "name": "view03.jpg", "camera_id": 1, "path": "images/view03.jpg"}
+  ]
+}
+

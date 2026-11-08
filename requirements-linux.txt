@@ -1,0 +1,14 @@
+# Linux x86_64 / Python 3.11 baseline; verified with GLIBC 2.27.
+# Keep the Windows verification files separate. Install the project with -e .
+numpy==1.26.4
+scipy==1.13.1
+opencv-python-headless==4.10.0.84
+einx==0.4.3
+einops==0.8.1
+fastapi==0.115.12
+starlette==0.46.2
+uvicorn==0.34.3
+python-multipart==0.0.20
+websockets==15.0.1
+httpx==0.28.1
+pytest==8.4.2

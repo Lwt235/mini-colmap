@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mini-colmap-learning"
+version = "0.1.0"
+description = "Incremental SfM, neural rendering and 3D semantic search with a local workbench"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.26,<3", "opencv-python-headless>=4.8,<5", "scipy>=1.11,<2", "einx>=0.4.3,<0.5"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10"]
+ui = ["fastapi>=0.115,<1", "uvicorn>=0.30,<1", "python-multipart>=0.0.18,<1", "websockets>=14,<17"]
+ui-test = ["httpx>=0.27,<1"]
+render = ["torch>=2.5,<3"]
+
+[project.scripts]
+mini-colmap = "minicolmap.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"minicolmap.ui" = ["static/*", "static/assets/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-ra"
+

@@ -1,0 +1,3 @@
+# Optional accelerated backend adapter; separate from the working PyTorch environment.
+# Needs a compatible CUDA extension/wheel or a local CUDA Toolkit + C++ build toolchain.
+gsplat==1.5.3

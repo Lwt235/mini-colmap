@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "name": "waldo_pca224_repair",
+  "dataset": "data/lerf_ovs/waldo_kitchen/dataset_all.json",
+  "annotations": "data/lerf_ovs/waldo_kitchen/semantic_annotations.json",
+  "rgb_run": "outputs/ui_3dgs_20261019_230921_797f2a",
+  "workspace": "data/semantic_waldo_repaired",
+  "model_manifest": "models/manifest.json",
+  "seed": 0,
+  "dev_image_ids": [
+    62,
+    124
+  ],
+  "smoke_image_ids": [
+    99
+  ],
+  "extract": {
+    "max_edge": 985,
+    "points_per_side": 32,
+    "points_per_batch": 32,
+    "pred_iou_thresh": 0.7,
+    "stability_score_thresh": 0.85,
+    "crop_n_layers": 1,
+    "min_mask_region_area": 100,
+    "clip_batch_size": 32
+  },
+  "regions": {
+    "min_area": 100,
+    "min_quality": 0.7
+  },
+  "autoencoder": {
+    "latent_dim": 224,
+    "steps": 1,
+    "batch_size": 256,
+    "learning_rate": 0.0007,
+    "codec": "pca"
+  },
+  "distill": {
+    "max_edge": 512,
+    "steps": 3000,
+    "learning_rate": 0.002,
+    "min_opacity": 0.1
+  },
+  "query": {
+    "temperature": 10.0,
+    "threshold": 0.5,
+    "negatives": [
+      "object",
+      "things",
+      "stuff",
+      "texture"
+    ]
+  }
+}

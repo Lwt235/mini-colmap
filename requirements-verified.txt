@@ -1,0 +1,11 @@
+# Verified on Windows, Python 3.12.7, 2026-10-14; install project separately with pip install -e .
+Pygments==2.21.0
+colorama==0.4.6
+einx==0.4.3
+iniconfig==2.3.1
+numpy==2.5.4
+opencv-python-headless==4.14.0.94
+packaging==26.3
+pluggy==1.6.0
+pytest==9.1.1
+scipy==1.18.1

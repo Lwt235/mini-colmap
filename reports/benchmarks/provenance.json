@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "scope": "Historical evidence extraction only; original files retained locally and ignored by Git. Hashes bind source bytes but do not independently establish measurement validity.",
+  "sources": {
+    "reports/3dgs-ablation-20261019/aggregate.csv": {
+      "bytes": 3633,
+      "sha256": "27076018ef8317f49be7c8fa88b9bc91755265f80e6858851c7d98a87047dd03"
+    },
+    "reports/3dgs-ablation-20261019/fixed-topology/aggregate.csv": {
+      "bytes": 1298,
+      "sha256": "99dd592e3abd084bca9ad854bcbb63cce79115a56fb3973d248ab1cc4d48663c"
+    },
+    "reports/3dgs-ablation-20261019/full-resolution/aggregate.csv": {
+      "bytes": 502,
+      "sha256": "dbd8befbd9b628bada8e7fe86684ff4eb397abaf723b6f1d1724423fb728065f"
+    },
+    "reports/langsplat-raw3-20261021/comparison.json": {
+      "bytes": 1124,
+      "sha256": "f39f614e5615773ef1e29b31d7f41aea076a531cae02b9cb07917ca0bcbc74d8"
+    },
+    "reports/langsplat-raw3-20261021/manifest.json": {
+      "bytes": 2276,
+      "sha256": "e44300370c0c69b396f7532a3dc2e6187b6bcca9a6752de217a8e43b7d19a5d4"
+    },
+    "reports/live-optimization-20261021/summary.json": {
+      "bytes": 1450,
+      "sha256": "3d59884abb9c7127f2d84cb2832590a5f848b4f6675a22acf3894d2051fc2cae"
+    },
+    "reports/live-optimization-20261021/native-inference.json": {
+      "bytes": 1352,
+      "sha256": "8d45cee8fe35045ff42793849cbbb4cc221631c393c572981a54de102cb41bc3"
+    },
+    "reports/live-optimization-20261021/before-720p.json": {
+      "bytes": 319643,
+      "sha256": "8d0329813849ce3c2fee6fc089557cf5000eda9e5ef3e141c9cef766458cab21"
+    },
+    "reports/live-optimization-20261021/after-720p.json": {
+      "bytes": 438054,
+      "sha256": "f4cb6f74b1c8eb0de00a560439365263774dcfaf0c1db8411f8782170e50e381"
+    },
+    "reports/portfolio-release-20261022/geometry-visible-campaign.json": {
+      "bytes": 32331,
+      "sha256": "50d546fc991c985b00881511d564e12822c686a6346f23b627bf7184d03a6f41"
+    },
+    "reports/portfolio-release-20261022/dev-selection-check.json": {
+      "bytes": 1682,
+      "sha256": "9fa0aae537fe66e682f53b2f22ec89fcc95de1c82977901bd814893c93db7ce5"
+    },
+    "reports/3dgs-ablation-20261019/dev-gain.svg": {
+      "bytes": 3185,
+      "sha256": "4f42562e5925aaea01d3dcf975b80fbc9e394670c3afa558f105a1bfb07b2ee0"
+    },
+    "reports/3dgs-ablation-20261019/full-resolution/comparison-temple312.png": {
+      "bytes": 800679,
+      "sha256": "11c9f7181252ae9ceadcdb5c27b764de108166f45a68ef988057788d5b8478af"
+    },
+    "docs/assets/benchmarks.json": {
+      "bytes": 27070,
+      "sha256": "2c4b7cc5f4a408386449e19b06c56c849d796dc584f54aba4ccc22f939b63161"
+    }
+  },
+  "outputs": {
+    "3dgs-screening.csv": {
+      "sources": [
+        "reports/3dgs-ablation-20261019/aggregate.csv"
+      ],
+      "transformation": "Exact byte copy; no rows removed",
+      "bytes": 3633,
+      "sha256": "27076018ef8317f49be7c8fa88b9bc91755265f80e6858851c7d98a87047dd03"
+    },
+    "3dgs-fixed-topology.csv": {
+      "sources": [
+        "reports/3dgs-ablation-20261019/fixed-topology/aggregate.csv"
+      ],
+      "transformation": "Exact byte copy; no rows removed",
+      "bytes": 1298,
+      "sha256": "99dd592e3abd084bca9ad854bcbb63cce79115a56fb3973d248ab1cc4d48663c"
+    },
+    "3dgs-full-resolution.csv": {
+      "sources": [
+        "reports/3dgs-ablation-20261019/full-resolution/aggregate.csv"
+      ],
+      "transformation": "Exact byte copy; no rows removed",
+      "bytes": 502,
+      "sha256": "dbd8befbd9b628bada8e7fe86684ff4eb397abaf723b6f1d1724423fb728065f"
+    },
+    "semantics.json": {
+      "sources": [
+        "reports/langsplat-raw3-20261021/comparison.json",
+        "reports/langsplat-raw3-20261021/manifest.json"
+      ],
+      "transformation": "Preserve all comparison metrics and codec/training/source identifiers; omit physical GPU ID; add explicit protocol and limitations",
+      "bytes": 3999,
+      "sha256": "42f7af4599b311e0bfeaa5fc4563aa70b98c9b2dabd2cbd7c0ae1dafd3ccaca9"
+    },
+    "live-rendering.json": {
+      "sources": [
+        "reports/live-optimization-20261021/summary.json",
+        "reports/live-optimization-20261021/native-inference.json",
+        "reports/live-optimization-20261021/before-720p.json",
+        "reports/live-optimization-20261021/after-720p.json"
+      ],
+      "transformation": "Keep summary quality/performance, aggregate timing distributions and model/hardware protocol; omit samples, run IDs, PIDs, physical GPU and historical test counts",
+      "bytes": 5610,
+      "sha256": "bff900dace92e5bf3a8d0634f8cd1be3f6840f73d219c0d73a83939c8e9193e0"
+    },
+    "selection.json": {
+      "sources": [
+        "reports/portfolio-release-20261022/geometry-visible-campaign.json",
+        "reports/portfolio-release-20261022/dev-selection-check.json"
+      ],
+      "transformation": "Extract policy and every success/rejection case, retain all Dev polygon metrics; omit selection/run IDs, PIDs, local paths and thumbnails",
+      "bytes": 4175,
+      "sha256": "feef4978227e9a49f062304cae87389d29d83672f36493ddb09e97d782728021"
+    }
+  },
+  "assets": {
+    "docs/assets/3dgs-dev-gain.svg": {
+      "sources": [
+        "reports/3dgs-ablation-20261019/dev-gain.svg"
+      ],
+      "transformation": "Exact byte copy",
+      "bytes": 3185,
+      "sha256": "4f42562e5925aaea01d3dcf975b80fbc9e394670c3afa558f105a1bfb07b2ee0"
+    },
+    "docs/assets/3dgs-temple312-comparison.png": {
+      "sources": [
+        "reports/3dgs-ablation-20261019/full-resolution/comparison-temple312.png"
+      ],
+      "transformation": "Exact byte copy",
+      "bytes": 800679,
+      "sha256": "11c9f7181252ae9ceadcdb5c27b764de108166f45a68ef988057788d5b8478af"
+    }
+  },
+  "retained_metadata": "docs/assets/benchmarks.json"
+}

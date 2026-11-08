@@ -1,0 +1,16 @@
+{
+  "method": "nerf",
+  "iterations": 3000,
+  "learning_rate": 0.0001,
+  "image_downscale": 8,
+  "rays_per_batch": 256,
+  "samples_per_ray": 64,
+  "near": 0.1,
+  "far": 4,
+  "holdout_every": 4,
+  "seed": 0,
+  "device": "cuda",
+  "preview_every": 100,
+  "nerf": {"levels_xyz": 10, "levels_dir": 4, "hidden_dim": 256},
+  "gaussian": {"initial_scale": 0.01, "initial_opacity": 0.1, "max_gaussians": 512, "densify_every": 0}
+}

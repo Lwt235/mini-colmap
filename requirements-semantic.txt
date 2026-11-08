@@ -1,0 +1,7 @@
+# Optional semantic dependencies for Linux; install compatible torch/torchvision first.
+open-clip-torch==2.30.0
+timm==1.0.15
+huggingface-hub==0.36.0
+safetensors==0.5.3
+ftfy==6.3.1
+segment-anything @ https://github.com/facebookresearch/segment-anything/archive/dca509fe793f601edb92606367a655c15ac00fdf.zip

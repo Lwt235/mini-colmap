@@ -1,0 +1,927 @@
+{
+  "schema_version": 1,
+  "scope": "Saved experiments; documentation refresh did not rerun training or performance tests",
+  "assets": {
+    "sfm-workbench.png": {
+      "source": "reports/web-performance/browser/completed.png",
+      "sha256": "d8c1c3ca67ac93e5d46fcc24105a5b88789acc7ab7066f436a506f7fccf40af6"
+    },
+    "gs-live-workbench.png": {
+      "source": "reports/2026-10-18-3dgs-resolution-live/live-workbench.png",
+      "sha256": "d4419b5126faa0a1cc2b54a28a3dbb56608e64937aa9a647222cf1f02e72e539"
+    },
+    "nerf-comparison.png": {
+      "source": "reports/2026-10-17-nerf-quality-recovery/preview.png",
+      "sha256": "bfbb6efd21b89ff2c7161f51ca1ef836e3e2c182133c1b44f161b91d199f79fa"
+    },
+    "temple-reference.png": {
+      "source": "outputs/ui_3dgs_20261018_154321_6fac7b/previews/reference-4.png",
+      "sha256": "fbc0d179f052b873c1d67a79c56f3ffb25bba4c88114a146d11acf3b786c2c34"
+    },
+    "temple-3dgs.png": {
+      "source": "outputs/ui_3dgs_20261018_154321_6fac7b/previews/step-005000.png",
+      "sha256": "9733bb95c15027eb5ce678375e7c1c254b862d632486aa99a0ef0f7209adeeb3"
+    },
+    "temple312-test40-reference.png": {
+      "source": "reports/3dgs-ablation-20261019/full-resolution/runs/temple312_baseline_s0_3c0d36ed0d/previews/reference-40.png",
+      "sha256": "c4f92aa707b331bbc8ecb58801db15e3a7dcb775022f9a9a320c989372166302",
+      "scope": "Temple312 fixed test image 40; 640x480; original PNG bytes, no visual editing"
+    },
+    "temple312-test40-optimized.png": {
+      "source": "reports/3dgs-ablation-20261019/full-resolution/runs/temple312_combined_s0_d3c2627799/validation/image-40.png",
+      "sha256": "9f86df867b8d103cc0f18dcee5ed6ed590a72e3c7f1e5af29f17e84a310094b1",
+      "scope": "Temple312 fixed test image 40; 640x480; original PNG bytes, no visual editing"
+    }
+  },
+  "experiments": {
+    "temple_sfm47": {
+      "source_directory": "outputs/ui_20261018_153919_803ccb",
+      "summary_sha256": "b4d7442bdc5d601f7e4c3115c6ae552a2a811faa527df7362697426562cec2fb",
+      "summary": {
+        "image_count": 47,
+        "registered_images": 47,
+        "point_count": 6570,
+        "observation_count": 27540,
+        "mean_reprojection_error_px": 0.39815613159293645,
+        "positive_depth_ratio": 1.0,
+        "elapsed_seconds": 106.83481089997804,
+        "unregistered_image_ids": []
+      },
+      "config": {
+        "seed": 0,
+        "features": {
+          "max_features": 4000,
+          "ratio": 0.75
+        },
+        "geometry": {
+          "threshold_px": 1.5,
+          "max_trials": 2000,
+          "confidence": 0.99,
+          "min_trials": 20,
+          "min_inliers": 30
+        },
+        "mapping": {
+          "min_pnp_points": 15,
+          "pnp_threshold_px": 3,
+          "min_angle_deg": 1.5,
+          "max_reprojection_px": 3
+        },
+        "bundle_adjustment": {
+          "enabled": false,
+          "max_nfev": 50,
+          "loss": "huber",
+          "f_scale": 1
+        }
+      }
+    },
+    "temple_3dgs5000": {
+      "source_directory": "outputs/ui_3dgs_20261018_154321_6fac7b",
+      "summary_sha256": "5dc29b0d1066d03c5394e13ffde332de18212564e4930dd09932e74a4c0c3fb8",
+      "summary": {
+        "pipeline": "3dgs",
+        "step": 5000,
+        "image_count": 47,
+        "registered_images": 47,
+        "point_count": 6726,
+        "elapsed_seconds": 304.875,
+        "metrics": {
+          "step": 5000,
+          "total": 5000,
+          "loss": 0.0006999223842285573,
+          "validation_mse": 0.000656148540491069,
+          "psnr": 31.829978328605307,
+          "psnr_scope": "mean_validation_view_mse"
+        }
+      },
+      "config": {
+        "method": "3dgs",
+        "iterations": 5000,
+        "learning_rate": 0.001,
+        "image_downscale": 4,
+        "rays_per_batch": 256,
+        "samples_per_ray": 32,
+        "near": 0.1,
+        "far": 4,
+        "holdout_every": 4,
+        "seed": 0,
+        "device": "cuda",
+        "preview_every": 100,
+        "background": "black",
+        "stratified_sampling": false,
+        "ray_sampling": "image",
+        "nerf": {
+          "levels_xyz": 6,
+          "levels_dir": 4,
+          "hidden_dim": 64
+        },
+        "gaussian": {
+          "initial_scale": 0.01,
+          "initial_opacity": 0.1,
+          "max_gaussians": 100000,
+          "densify_every": 100,
+          "sh_degree": 3,
+          "sh_degree_interval": 0,
+          "backend": "gsplat"
+        }
+      },
+      "split_counts": {
+        "train": 36,
+        "validation": 11
+      }
+    },
+    "dino_sfm363": {
+      "source_directory": "outputs/ui_20261018_163545_713ebb",
+      "summary_sha256": "894620d3babe58a097151c9b8e83ec505bd739164e9fa6e35ffbf2c6e1cb374d",
+      "summary": {
+        "image_count": 363,
+        "registered_images": 102,
+        "point_count": 778,
+        "observation_count": 4680,
+        "mean_reprojection_error_px": 1.1385017871528882,
+        "positive_depth_ratio": 1.0,
+        "elapsed_seconds": 1580.9829470000113,
+        "unregistered_image_ids": [
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65,
+          66,
+          67,
+          68,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          114,
+          115,
+          116,
+          117,
+          118,
+          119,
+          120,
+          121,
+          122,
+          123,
+          124,
+          125,
+          126,
+          127,
+          128,
+          129,
+          130,
+          131,
+          132,
+          133,
+          134,
+          135,
+          136,
+          137,
+          138,
+          139,
+          140,
+          141,
+          142,
+          143,
+          148,
+          149,
+          150,
+          151,
+          152,
+          153,
+          154,
+          155,
+          156,
+          157,
+          158,
+          159,
+          160,
+          161,
+          162,
+          163,
+          185,
+          186,
+          187,
+          188,
+          189,
+          190,
+          191,
+          192,
+          193,
+          194,
+          195,
+          196,
+          197,
+          198,
+          199,
+          200,
+          201,
+          202,
+          203,
+          204,
+          205,
+          206,
+          207,
+          208,
+          209,
+          210,
+          211,
+          212,
+          213,
+          219,
+          220,
+          221,
+          226,
+          227,
+          228,
+          229,
+          230,
+          231,
+          232,
+          233,
+          234,
+          235,
+          236,
+          237,
+          238,
+          239,
+          240,
+          241,
+          242,
+          243,
+          244,
+          245,
+          246,
+          247,
+          248,
+          249,
+          250,
+          251,
+          252,
+          253,
+          254,
+          255,
+          256,
+          257,
+          258,
+          262,
+          263,
+          264,
+          265,
+          266,
+          267,
+          268,
+          269,
+          270,
+          271,
+          272,
+          273,
+          274,
+          275,
+          276,
+          277,
+          278,
+          279,
+          280,
+          281,
+          282,
+          283,
+          284,
+          285,
+          286,
+          287,
+          288,
+          289,
+          290,
+          291,
+          292,
+          293,
+          294,
+          295,
+          296,
+          297,
+          298,
+          299,
+          300,
+          301,
+          302,
+          303,
+          304,
+          305,
+          306,
+          307,
+          308,
+          309,
+          310,
+          311,
+          312,
+          313,
+          314,
+          315,
+          316,
+          317,
+          318,
+          319,
+          320,
+          321,
+          322,
+          323,
+          324,
+          325,
+          326,
+          329,
+          330,
+          331,
+          332,
+          336,
+          337,
+          338,
+          339,
+          340,
+          341,
+          342,
+          346,
+          347,
+          348,
+          349,
+          350,
+          351,
+          352,
+          353,
+          354,
+          355,
+          356,
+          357,
+          358,
+          359,
+          360,
+          361,
+          362,
+          363
+        ]
+      },
+      "config": {
+        "seed": 0,
+        "features": {
+          "max_features": 4000,
+          "ratio": 0.75
+        },
+        "geometry": {
+          "threshold_px": 1.5,
+          "max_trials": 2000,
+          "confidence": 0.99,
+          "min_trials": 20,
+          "min_inliers": 30
+        },
+        "mapping": {
+          "min_pnp_points": 15,
+          "pnp_threshold_px": 3,
+          "min_angle_deg": 1.5,
+          "max_reprojection_px": 3
+        },
+        "bundle_adjustment": {
+          "enabled": false,
+          "max_nfev": 50,
+          "loss": "huber",
+          "f_scale": 1
+        }
+      }
+    },
+    "dino_3dgs30000": {
+      "source_directory": "outputs/ui_3dgs_20261018_174135_2ac585",
+      "summary_sha256": "04f280099b5dab6cc17ac304cc8849b2aa102e33d5c33a34bc251c525464fa9b",
+      "summary": {
+        "pipeline": "3dgs",
+        "step": 30000,
+        "image_count": 102,
+        "registered_images": 102,
+        "point_count": 2623,
+        "elapsed_seconds": 2024.1869999999763,
+        "metrics": {
+          "step": 30000,
+          "total": 30000,
+          "loss": 0.0003136171435471624,
+          "validation_mse": 0.0012576604867354036,
+          "psnr": 29.00436583563173,
+          "psnr_scope": "mean_validation_view_mse"
+        }
+      },
+      "config": {
+        "method": "3dgs",
+        "iterations": 30000,
+        "learning_rate": 0.001,
+        "image_downscale": 8,
+        "rays_per_batch": 256,
+        "samples_per_ray": 32,
+        "near": 0.1,
+        "far": 4,
+        "holdout_every": 4,
+        "seed": 0,
+        "device": "cuda",
+        "preview_every": 100,
+        "background": "black",
+        "stratified_sampling": false,
+        "ray_sampling": "image",
+        "nerf": {
+          "levels_xyz": 6,
+          "levels_dir": 4,
+          "hidden_dim": 64
+        },
+        "gaussian": {
+          "initial_scale": 0.01,
+          "initial_opacity": 0.1,
+          "max_gaussians": 500000,
+          "densify_every": 100,
+          "sh_degree": 3,
+          "sh_degree_interval": 0,
+          "backend": "gsplat"
+        }
+      },
+      "split_counts": {
+        "train": 77,
+        "validation": 25
+      }
+    },
+    "temple_nerf6000": {
+      "source": "reports/2026-10-17-nerf-quality-recovery/quality.json",
+      "config": {
+        "method": "nerf",
+        "iterations": 6000,
+        "learning_rate": 0.0001,
+        "image_downscale": 4,
+        "rays_per_batch": 512,
+        "samples_per_ray": 64,
+        "near": 0.55,
+        "far": 1.25,
+        "holdout_every": 4,
+        "seed": 0,
+        "device": "cuda",
+        "preview_every": 500,
+        "background": "black",
+        "stratified_sampling": true,
+        "ray_sampling": "all_images",
+        "nerf": {
+          "levels_xyz": 6,
+          "levels_dir": 4,
+          "hidden_dim": 256
+        },
+        "gaussian": {
+          "initial_scale": 0.01,
+          "initial_opacity": 0.1,
+          "max_gaussians": 512,
+          "densify_every": 0
+        }
+      },
+      "run_name": "ui_nerf_20261017_231626_22a05a",
+      "metrics": {
+        "mse": 0.0038311573973094874,
+        "psnr": 24.16670005318204,
+        "mean_brightness_mask_iou": 0.8562566130588473,
+        "mean_boundary_f1_1px": 0.7414254565606437,
+        "mean_brightness_foreground_mse": 0.010939944281496784
+      },
+      "split_counts": {
+        "train": 36,
+        "validation": 11
+      },
+      "image_size": [
+        160,
+        120
+      ]
+    },
+    "live_browser": {
+      "source": "reports/2026-10-18-3dgs-resolution-live/live-browser-performance.json",
+      "scope": "Headless local Edge, production OrbitControls/JPEG UI, RAF submissions",
+      "warmup_seconds": 10,
+      "measurement_seconds": 60,
+      "ready": {
+        "type": "ready",
+        "backend": "gsplat",
+        "device": "cuda:0",
+        "gpu_name": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "gaussian_count": 6570,
+        "sh_degree": 3,
+        "step": 3000,
+        "coordinate_system": "sfm_world",
+        "max_width": 1920,
+        "max_height": 1080,
+        "max_pixels": 2073600,
+        "jpeg_quality": 85,
+        "runtime": {
+          "platform": "win32",
+          "cpu_count": 20,
+          "python_trace_active": false,
+          "qos_policy": "high",
+          "qos_applied": true,
+          "windows_power_throttling": {
+            "before": {
+              "control_mask": 0,
+              "state_mask": 0
+            },
+            "requested": {
+              "control_mask": 1,
+              "state_mask": 0
+            }
+          }
+        }
+      },
+      "resolution": [
+        1280,
+        720
+      ],
+      "new_image_submissions": 5468,
+      "actual_duration_seconds": 59.993,
+      "browser_fps": 91.12729818478822,
+      "frame_interval_p95_ms": 13.399999976158142,
+      "latency_ms": {
+        "mean": 15.079480613954502,
+        "p50": 15.200000047683716,
+        "p95": 18.30000001192093
+      },
+      "render_ms": {
+        "mean": 4.525400866054669,
+        "p50": 4.213632106781006,
+        "p95": 6.689792156219482
+      },
+      "encode_ms": {
+        "mean": 2.2868853876936597,
+        "p50": 2.233400009572506,
+        "p95": 2.7057999977841973
+      }
+    },
+    "initialization_pruning": {
+      "scope": "Historical single-run audit; some original model outputs have since been deleted",
+      "source_before_run": "ui_20261017_114216_21f8b5",
+      "source_after_run": "ui_20261017_143548_b10a93",
+      "image_count": 47,
+      "before": {
+        "candidate_count": 218,
+        "refinement_calls": 217,
+        "pruned": 0,
+        "initialization_seconds": 31.761,
+        "total_seconds": 168.519
+      },
+      "after": {
+        "candidate_count": 218,
+        "refinement_calls": 2,
+        "pruned": 216,
+        "initialization_seconds": 1.097,
+        "total_seconds": 119.187
+      },
+      "historically_verified_equal": [
+        "pairs.json",
+        "initial map snapshot",
+        "model.json"
+      ],
+      "origin": "Repository initialization-pruning audit before documentation consolidation; recoverable in Git history"
+    },
+    "dino_sfm_repaired_cached": {
+      "source_directory": "outputs/dino363_repaired_cached_52058b",
+      "summary": {
+        "image_count": 363,
+        "registered_images": 321,
+        "point_count": 3036,
+        "observation_count": 25716,
+        "mean_reprojection_error_px": 1.1620483765809917,
+        "median_reprojection_error_px": 1.0208955765637553,
+        "p95_reprojection_error_px": 2.6601182748798333,
+        "positive_depth_ratio": 1.0,
+        "tracks": 3664,
+        "elapsed_seconds": 134.96933399996487,
+        "timing_scope": "cached feature and F-RANSAC reuse; timings exclude extraction and pair geometry"
+      },
+      "config": {
+        "seed": 0,
+        "features": {
+          "max_features": 4000,
+          "ratio": 0.75
+        },
+        "geometry": {
+          "threshold_px": 1.5,
+          "max_trials": 2000,
+          "confidence": 0.99,
+          "min_trials": 20,
+          "min_inliers": 30,
+          "min_pair_inliers": 20
+        },
+        "mapping": {
+          "min_pnp_points": 15,
+          "pnp_threshold_px": 3,
+          "min_angle_deg": 1.5,
+          "max_reprojection_px": 3,
+          "track_conflict_policy": "split"
+        },
+        "bundle_adjustment": {
+          "enabled": false,
+          "max_nfev": 50,
+          "loss": "huber",
+          "f_scale": 1
+        }
+      },
+      "pose_quality": {
+        "before": {
+          "common_view_count": 101,
+          "median_rotation_error_deg": 2.755482626810183,
+          "p90_rotation_error_deg": 5.0925485886773085
+        },
+        "after": {
+          "common_view_count": 101,
+          "median_rotation_error_deg": 1.9690833110382593,
+          "p90_rotation_error_deg": 3.8897418433444426
+        },
+        "scope": "Orientation gauge fitted separately on the same 101 shared cameras; reference used for evaluation only",
+        "newly_registered_images": 220,
+        "previously_registered_now_rejected": [
+          18
+        ]
+      },
+      "cache_scope": "cached feature and F-RANSAC reuse; timings exclude extraction and pair geometry"
+    },
+    "3dgs_optimization_ablation": {
+      "report_directory": "reports/3dgs-ablation-20261019",
+      "documentation": "docs/3dgs-optimization-ablation.md",
+      "training_jobs": 50,
+      "object_identities": 2,
+      "screening": {
+        "input_sets": [
+          "temple47",
+          "temple312",
+          "dino321"
+        ],
+        "seeds": [
+          0,
+          1
+        ],
+        "steps": 3000,
+        "resolution": [
+          160,
+          120
+        ]
+      },
+      "confirmation": {
+        "baseline": {
+          "metrics_all_15": {
+            "step": 10000,
+            "total": 10000,
+            "loss": 0.003953002858906984,
+            "validation_mse": 0.002183790225535631,
+            "psnr": 26.60789082207177,
+            "psnr_scope": "mean_validation_view_mse",
+            "ssim": 0.7906150062878926
+          },
+          "test_7": {
+            "views": 7,
+            "psnr_from_mean_mse": 26.44635201847151,
+            "mean_view_psnr": 26.7034927162285,
+            "ssim": 0.787026686327798
+          },
+          "gaussians": 24527,
+          "training_seconds": 268.40599999999904,
+          "peak_cuda_allocated_mib": 90.50048828125,
+          "model_sha256": "e88f5c5add744b023ab4825f7d29aeb5c9a27caa06b1e3386cc4abb1ae5b000c",
+          "dataset_sha256": "fa68ec4a04ee046e0d3cb499d14176e5ed9c542d580b9d794a685a0c517cbba5",
+          "summary_sha256": "478268c532d1fb2d4b1c258238a6e9c07874ea26c33733459011788ad6c3e6c1"
+        },
+        "combined": {
+          "metrics_all_15": {
+            "step": 10000,
+            "total": 10000,
+            "loss": 0.010294143110513687,
+            "validation_mse": 0.00023056699380200976,
+            "psnr": 36.37202862850551,
+            "psnr_scope": "mean_validation_view_mse",
+            "ssim": 0.9561254183451334
+          },
+          "test_7": {
+            "views": 7,
+            "psnr_from_mean_mse": 36.016682177220375,
+            "mean_view_psnr": 37.24596316182168,
+            "ssim": 0.9546348111970084
+          },
+          "gaussians": 100000,
+          "training_seconds": 559.8279999999977,
+          "peak_cuda_allocated_mib": 293.6884765625,
+          "model_sha256": "e88f5c5add744b023ab4825f7d29aeb5c9a27caa06b1e3386cc4abb1ae5b000c",
+          "dataset_sha256": "fa68ec4a04ee046e0d3cb499d14176e5ed9c542d580b9d794a685a0c517cbba5",
+          "summary_sha256": "a1e8c68332fdeab5af9fa23dcc20dbcadd1b5d9dd212e27191c21ecbfb76068d"
+        }
+      },
+      "confirmation_scope": {
+        "scene": "temple312",
+        "train_dev_test": [
+          297,
+          8,
+          7
+        ],
+        "seed": 0,
+        "steps": 10000,
+        "resolution": [
+          640,
+          480
+        ],
+        "max_gaussians": 100000
+      },
+      "experiment_code_sha256": {
+        "src/minicolmap/rendering/algorithms.py": "0f396f5d8a6a55d9f62394e0e16f3addf741b1a4bc6ee2cb285d9a287082bb03",
+        "src/minicolmap/rendering/pipeline.py": "248806208453e57b478f17e809b1ba14a33871ed3c6ea0b3c1207d9ced371166",
+        "src/minicolmap/rendering/gaussian_training.py": "2d059b67f1b6e7d95ce286b289b39df65e58d1fccf9dcd625de000de746d6163",
+        "src/minicolmap/rendering/config.py": "028beb1933da36f5c87a54d6ccefe0bc9ae5a2c3d49a125962f260370977e137",
+        "src/minicolmap/rendering/data.py": "5246938b9a89a48d55d79a368b5b45921e15c9448e60576f8d774507c9a34f14",
+        "src/minicolmap/rendering/gaussian_backend.py": "5c24ea9aa5c45c1ef3869207e4e7bad912fe35b67ebda5f97cfcbfc8ffe75849",
+        "src/minicolmap/rendering/live.py": "897a4525a537b4a4606b6c7fb2bb126a5f502ed2f2cf387e2830384b85a604c8"
+      },
+      "current_code_sha256": {
+        "src/minicolmap/rendering/algorithms.py": "0f396f5d8a6a55d9f62394e0e16f3addf741b1a4bc6ee2cb285d9a287082bb03",
+        "src/minicolmap/rendering/pipeline.py": "305264a215d0fdb213f904b76e84e6cf925700d2b570ad2c935a0951d00690af",
+        "src/minicolmap/rendering/gaussian_training.py": "2d059b67f1b6e7d95ce286b289b39df65e58d1fccf9dcd625de000de746d6163",
+        "src/minicolmap/rendering/config.py": "028beb1933da36f5c87a54d6ccefe0bc9ae5a2c3d49a125962f260370977e137",
+        "src/minicolmap/rendering/data.py": "5246938b9a89a48d55d79a368b5b45921e15c9448e60576f8d774507c9a34f14",
+        "src/minicolmap/rendering/gaussian_backend.py": "5c24ea9aa5c45c1ef3869207e4e7bad912fe35b67ebda5f97cfcbfc8ffe75849",
+        "src/minicolmap/rendering/live.py": "897a4525a537b4a4606b6c7fb2bb126a5f502ed2f2cf387e2830384b85a604c8"
+      },
+      "selection": "dev only; identical frozen maps; test images excluded from training loss; map/initial colors from all-view SfM",
+      "browser_720p": {
+        "baseline": {
+          "run_id": "result-139368514469afcd",
+          "scope": "Headless local Edge, production OrbitControls/JPEG UI, RAF submissions",
+          "warmup_seconds": 10,
+          "measurement_seconds": 60,
+          "ready": {
+            "type": "ready",
+            "backend": "gsplat",
+            "device": "cuda:0",
+            "gpu_name": "NVIDIA GeForce RTX 4060 Laptop GPU",
+            "gaussian_count": 24527,
+            "sh_degree": 3,
+            "step": 10000,
+            "coordinate_system": "sfm_world",
+            "max_width": 1920,
+            "max_height": 1080,
+            "max_pixels": 2073600,
+            "jpeg_quality": 85,
+            "runtime": {
+              "platform": "win32",
+              "cpu_count": 20,
+              "python_trace_active": false,
+              "qos_policy": "high",
+              "qos_applied": true,
+              "windows_power_throttling": {
+                "before": {
+                  "control_mask": 0,
+                  "state_mask": 0
+                },
+                "requested": {
+                  "control_mask": 1,
+                  "state_mask": 0
+                }
+              }
+            }
+          },
+          "resolution": [
+            1280,
+            720
+          ],
+          "new_image_submissions": 3230,
+          "actual_duration_seconds": 59.973099999997764,
+          "browser_fps": 53.84080529437565,
+          "frame_interval_p95_ms": 29.800000000745058,
+          "latency_ms": {
+            "mean": 25.370092879212677,
+            "p50": 24.5,
+            "p95": 36.399999998509884
+          },
+          "render_ms": {
+            "mean": 8.61486643268597,
+            "p50": 6.618112087249756,
+            "p95": 18.8723201751709
+          },
+          "encode_ms": {
+            "mean": 2.410685417976522,
+            "p50": 2.3255999985849485,
+            "p95": 2.9136000011931174
+          },
+          "readback_ms": {
+            "mean": 0.9200585448184381,
+            "p50": 0.5710000041290186,
+            "p95": 2.5241000039386563
+          },
+          "target_30fps_met": true,
+          "status": "passed",
+          "page_errors": []
+        },
+        "combined": {
+          "run_id": "result-342451ad6e98fed3",
+          "scope": "Headless local Edge, production OrbitControls/JPEG UI, RAF submissions",
+          "warmup_seconds": 10,
+          "measurement_seconds": 60,
+          "ready": {
+            "type": "ready",
+            "backend": "gsplat",
+            "device": "cuda:0",
+            "gpu_name": "NVIDIA GeForce RTX 4060 Laptop GPU",
+            "gaussian_count": 100000,
+            "sh_degree": 3,
+            "step": 10000,
+            "coordinate_system": "sfm_world",
+            "max_width": 1920,
+            "max_height": 1080,
+            "max_pixels": 2073600,
+            "jpeg_quality": 85,
+            "runtime": {
+              "platform": "win32",
+              "cpu_count": 20,
+              "python_trace_active": false,
+              "qos_policy": "high",
+              "qos_applied": true,
+              "windows_power_throttling": {
+                "before": {
+                  "control_mask": 0,
+                  "state_mask": 0
+                },
+                "requested": {
+                  "control_mask": 1,
+                  "state_mask": 0
+                }
+              }
+            }
+          },
+          "resolution": [
+            1280,
+            720
+          ],
+          "new_image_submissions": 3253,
+          "actual_duration_seconds": 59.98,
+          "browser_fps": 54.21807269089697,
+          "frame_interval_p95_ms": 23.099999997764826,
+          "latency_ms": {
+            "mean": 24.3561020596368,
+            "p50": 24.300000000745058,
+            "p95": 29.799999997019768
+          },
+          "render_ms": {
+            "mean": 8.617008828251977,
+            "p50": 8.066047668457031,
+            "p95": 12.183551788330078
+          },
+          "encode_ms": {
+            "mean": 2.6010310175792526,
+            "p50": 2.536899999540765,
+            "p95": 3.1196999989333563
+          },
+          "readback_ms": {
+            "mean": 0.6737853673039554,
+            "p50": 0.5700000037904829,
+            "p95": 1.0973000025842339
+          },
+          "target_30fps_met": true,
+          "status": "passed",
+          "page_errors": []
+        }
+      }
+    }
+  }
+}

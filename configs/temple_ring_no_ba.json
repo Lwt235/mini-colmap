@@ -1,0 +1,5 @@
+{
+  "bundle_adjustment": {
+    "enabled": false
+  }
+}

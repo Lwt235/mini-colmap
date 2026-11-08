@@ -1,0 +1,1 @@
+Current working-tree source snapshot, including uncommitted changes, with retained historical benchmark evidence. Git history, local archives, credentials, datasets, checkpoints and pretrained weights are excluded. Third-party usage and license conditions apply.

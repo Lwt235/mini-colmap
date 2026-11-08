@@ -1,0 +1,14 @@
+{
+  "pose_convention": "world_to_camera",
+  "cameras": [
+    {"id": 1, "width": 640, "height": 480, "K": [[800, 0, 319.5], [0, 800, 239.5], [0, 0, 1]]}
+  ],
+  "images": [
+    {"id": 1, "name": "view1.png", "camera_id": 1, "path": "images/view1.png"},
+    {"id": 2, "name": "view2.png", "camera_id": 1, "path": "images/view2.png"}
+  ],
+  "poses": [
+    {"image_id": 1, "R": [[1, 0, 0], [0, 1, 0], [0, 0, 1]], "t": [0, 0, 0]},
+    {"image_id": 2, "R": [[1, 0, 0], [0, 1, 0], [0, 0, 1]], "t": [-1, 0, 0]}
+  ]
+}

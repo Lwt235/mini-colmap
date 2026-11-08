@@ -1,0 +1,71 @@
+# Project-local public re-exports for einx 0.4.3.
+# Pylance-only; runtime imports still use the installed library.
+# Internal module signatures come from the installed package via partial stubs.
+
+from einx._src.frontend.types import Tensor as Tensor
+from einx._src.frontend.ops import id as id
+from einx._src.frontend.ops import sum as sum
+from einx._src.frontend.ops import mean as mean
+from einx._src.frontend.ops import var as var
+from einx._src.frontend.ops import std as std
+from einx._src.frontend.ops import prod as prod
+from einx._src.frontend.ops import count_nonzero as count_nonzero
+from einx._src.frontend.ops import any as any
+from einx._src.frontend.ops import all as all
+from einx._src.frontend.ops import max as max
+from einx._src.frontend.ops import min as min
+from einx._src.frontend.ops import logsumexp as logsumexp
+from einx._src.frontend.ops import add as add
+from einx._src.frontend.ops import subtract as subtract
+from einx._src.frontend.ops import multiply as multiply
+from einx._src.frontend.ops import true_divide as true_divide
+from einx._src.frontend.ops import floor_divide as floor_divide
+from einx._src.frontend.ops import divide as divide
+from einx._src.frontend.ops import logical_and as logical_and
+from einx._src.frontend.ops import logical_or as logical_or
+from einx._src.frontend.ops import where as where
+from einx._src.frontend.ops import maximum as maximum
+from einx._src.frontend.ops import minimum as minimum
+from einx._src.frontend.ops import less as less
+from einx._src.frontend.ops import less_equal as less_equal
+from einx._src.frontend.ops import greater as greater
+from einx._src.frontend.ops import greater_equal as greater_equal
+from einx._src.frontend.ops import equal as equal
+from einx._src.frontend.ops import not_equal as not_equal
+from einx._src.frontend.ops import logaddexp as logaddexp
+from einx._src.frontend.ops import dot as dot
+from einx._src.frontend.ops import get_at as get_at
+from einx._src.frontend.ops import set_at as set_at
+from einx._src.frontend.ops import add_at as add_at
+from einx._src.frontend.ops import subtract_at as subtract_at
+from einx._src.frontend.ops import softmax as softmax
+from einx._src.frontend.ops import log_softmax as log_softmax
+from einx._src.frontend.ops import sort as sort
+from einx._src.frontend.ops import argsort as argsort
+from einx._src.frontend.ops import flip as flip
+from einx._src.frontend.ops import roll as roll
+from einx._src.frontend.ops import argmax as argmax
+from einx._src.frontend.ops import argmin as argmin
+from einx._src.frontend.removed_ops import rearrange as rearrange
+from einx._src.frontend.removed_ops import vmap as vmap
+from einx._src.frontend.removed_ops import vmap_with_axis as vmap_with_axis
+from einx._src.frontend.removed_ops import reduce as reduce
+from einx._src.frontend.removed_ops import elementwise as elementwise
+from einx._src.frontend.removed_ops import arange as arange
+from einx._src.frontend.util import matches as matches
+from einx._src.frontend.util import solve as solve
+from einx._src.frontend.util import solve_shapes as solve_shapes
+from einx._src.frontend.util import solve_axes as solve_axes
+from einx._src.frontend.util import check as check
+from . import backend as backend
+from . import numpy as numpy
+from . import jax as jax
+from . import torch as torch
+from . import mlx as mlx
+from . import tensorflow as tensorflow
+from . import arrayapi as arrayapi
+from . import tinygrad as tinygrad
+from . import errors as errors
+from . import experimental as experimental
+
+__version__: str

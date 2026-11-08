@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="500" viewBox="0 0 1120 500" role="img" aria-labelledby="title desc">
+  <title id="title">Mini-COLMAP：SfM、NeRF 与 3DGS 数据路径</title>
+  <desc id="desc">照片与内参经SfM得到位姿和稀疏点云。NeRF可直接使用已知位姿照片，无需点云。3DGS需要位姿和点云初始化。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#75d4c2"/></marker>
+    <style>text{font-family:'Segoe UI','Microsoft YaHei',sans-serif}.title{fill:#edf5f7;font-size:25px;font-weight:600}.label{fill:#edf5f7;font-size:22px;font-weight:600}.sub{fill:#a8bbc5;font-size:16px}.tag{fill:#75d4c2;font-size:15px}.box{fill:#18282f;stroke:#39525f;stroke-width:1.5}.accent{fill:#183832;stroke:#75d4c2;stroke-width:1.5}.line{fill:none;stroke:#75d4c2;stroke-width:2;marker-end:url(#arrow)}</style>
+  </defs>
+  <rect width="1120" height="500" rx="16" fill="#101a20"/>
+  <text x="40" y="48" class="title">从几何重建到新视图合成</text>
+  <text x="40" y="76" class="sub">CLI 与浏览器共用 Python 算法；前端展示真实结果</text>
+  <rect x="40" y="116" width="225" height="90" rx="10" class="box"/>
+  <text x="60" y="151" class="label">多视图照片 + K</text><text x="60" y="181" class="sub">已知内参、已去畸变</text>
+  <path d="M265 161H350" class="line"/>
+  <rect x="350" y="116" width="250" height="90" rx="10" class="box"/>
+  <text x="372" y="151" class="label">增量 SfM</text><text x="372" y="181" class="sub">匹配 / 几何 / 建图 / BA</text>
+  <path d="M600 161H745" class="line"/>
+  <rect x="745" y="116" width="335" height="90" rx="10" class="accent"/>
+  <text x="767" y="151" class="label">相机位姿 + 稀疏点云</text><text x="767" y="181" class="sub">可检查、导出并复用</text>
+  <path d="M787 206V254H475V314" class="line"/>
+  <text x="590" y="246" class="tag">使用位姿</text>
+  <path d="M913 206V314" class="line"/>
+  <text x="928" y="269" class="tag">使用位姿 + 点云</text>
+  <rect x="40" y="314" width="225" height="90" rx="10" class="box"/>
+  <text x="60" y="349" class="label">已知位姿照片</text><text x="60" y="379" class="sub">照片 + K / R / t</text>
+  <path d="M265 359H350" class="line"/>
+  <rect x="350" y="314" width="250" height="90" rx="10" class="accent"/>
+  <text x="372" y="349" class="label">NeRF</text><text x="372" y="379" class="sub">直接训练，无需点云</text>
+  <rect x="745" y="314" width="335" height="90" rx="10" class="accent"/>
+  <text x="767" y="349" class="label">3D Gaussian Splatting</text><text x="767" y="379" class="sub">点云初始化 + SH + CUDA</text>
+  <text x="40" y="449" class="sub">两种方法均使用原始照片监督；3DGS 训练后支持自由视角实时浏览。</text>
+  <text x="40" y="476" class="sub">箭头表示输入依赖；已知位姿可以来自标定，也可以来自本项目的 SfM 估计。</text>
+</svg>

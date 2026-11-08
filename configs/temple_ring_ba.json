@@ -1,0 +1,6 @@
+{
+  "bundle_adjustment": {
+    "enabled": true,
+    "max_nfev": 100
+  }
+}

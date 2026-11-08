@@ -1,0 +1,4 @@
+{
+  "geometry": {"min_pair_inliers": 20, "min_inliers": 30},
+  "mapping": {"track_conflict_policy": "split"}
+}

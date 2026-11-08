@@ -1,0 +1,10 @@
+{
+  "method": "nerf",
+  "iterations": 2,
+  "image_downscale": 16,
+  "rays_per_batch": 32,
+  "samples_per_ray": 8,
+  "preview_every": 1,
+  "device": "cpu",
+  "nerf": {"levels_xyz": 2, "levels_dir": 1, "hidden_dim": 16}
+}

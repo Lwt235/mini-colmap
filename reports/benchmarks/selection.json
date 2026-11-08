@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "scene": "waldo_kitchen",
+  "policy": {
+    "version": "text-selection-v1",
+    "fit_views": 6,
+    "validation_views": 5,
+    "steps": 1200,
+    "seed": 0,
+    "membership_threshold": 0.6,
+    "min_opacity": 0.005,
+    "voxel_size_scale": 0.025,
+    "min_gaussians": 100,
+    "max_scene_fraction": 0.15,
+    "min_query_pixels": 100,
+    "min_precision": 0.65,
+    "min_coverage": 0.5,
+    "min_iou": 0.4,
+    "min_good_validation_views": 3,
+    "min_reprojection_iou": 0.4,
+    "min_foreground_agreement": 0.6,
+    "min_consistent_fit_views": 3
+  },
+  "cases": [
+    {
+      "query": "sink",
+      "search_status": "completed",
+      "validated_candidate": {
+        "status": "completed",
+        "anchor_image_id": 126,
+        "selected_gaussians": 10604
+      },
+      "evidence": {
+        "accepted": true,
+        "reasons": [],
+        "good_validation_views": 4,
+        "consistent_fit_views": 5,
+        "scope": "Language-mask self-consistency only; not human 3D accuracy or calibrated confidence"
+      }
+    },
+    {
+      "query": "dark cup",
+      "search_status": "needs_choice",
+      "validated_candidate": {
+        "status": "rejected",
+        "anchor_image_id": 118,
+        "selected_gaussians": 1402
+      },
+      "evidence": {
+        "accepted": false,
+        "reasons": [
+          "五个独立视角中的选区与二维查询一致性不足"
+        ],
+        "good_validation_views": 0,
+        "consistent_fit_views": 3,
+        "scope": "Language-mask self-consistency only; not human 3D accuracy or calibrated confidence"
+      }
+    },
+    {
+      "query": "knife",
+      "search_status": "completed",
+      "validated_candidate": {
+        "status": "completed",
+        "anchor_image_id": 94,
+        "selected_gaussians": 9845
+      },
+      "evidence": {
+        "accepted": true,
+        "reasons": [],
+        "good_validation_views": 4,
+        "consistent_fit_views": 4,
+        "scope": "Language-mask self-consistency only; not human 3D accuracy or calibrated confidence"
+      }
+    }
+  ],
+  "dev_polygon_check": {
+    "threshold": 0.2,
+    "scope": "Original Dev polygon grid; used for development inspection, not blind generalization. Selection fit did not read manual GT.",
+    "per_query": [
+      {
+        "query": "sink",
+        "image_id": 124,
+        "iou": 0.691509848095814,
+        "precision": 0.8553167403430948,
+        "coverage": 0.7831138833847272,
+        "prediction_pixels": 390446,
+        "gt_pixels": 426445,
+        "false_positive_pixels": 56491,
+        "false_negative_pixels": 92490,
+        "method": "geometry-visible"
+      },
+      {
+        "query": "dark cup",
+        "image_id": 124,
+        "iou": 0.7086056939117281,
+        "precision": 0.7909669249555281,
+        "coverage": 0.871880089069095,
+        "prediction_pixels": 33167,
+        "gt_pixels": 30089,
+        "false_positive_pixels": 6933,
+        "false_negative_pixels": 3855,
+        "method": "geometry-visible"
+      },
+      {
+        "query": "knife",
+        "image_id": 62,
+        "iou": 0.7216771488469602,
+        "precision": 0.7825059101654847,
+        "coverage": 0.9027588377215987,
+        "prediction_pixels": 10998,
+        "gt_pixels": 9533,
+        "false_positive_pixels": 2392,
+        "false_negative_pixels": 927,
+        "method": "geometry-visible"
+      },
+      {
+        "query": "dark cup",
+        "image_id": 124,
+        "iou": 0.18400341010180885,
+        "precision": 0.18434962368785898,
+        "coverage": 0.9898966399680946,
+        "prediction_pixels": 161568,
+        "gt_pixels": 30089,
+        "false_positive_pixels": 131783,
+        "false_negative_pixels": 304,
+        "method": "teacher-assisted rejected control"
+      }
+    ]
+  },
+  "limitations": [
+    "Validation compares rendered selection masks with language masks: self-consistency, not human 3D accuracy or calibrated confidence.",
+    "Sink and knife passed the release gate; dark cup failed with zero good validation views.",
+    "Dark cup single-view Dev IoU does not override multi-view rejection.",
+    "Teacher-assisted cup was rejected and is retained as a negative result."
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "method": "nerf",
+  "iterations": 6000,
+  "learning_rate": 0.0001,
+  "image_downscale": 4,
+  "rays_per_batch": 512,
+  "samples_per_ray": 64,
+  "near": 0.55,
+  "far": 1.25,
+  "holdout_every": 4,
+  "seed": 0,
+  "device": "cuda",
+  "preview_every": 500,
+  "background": "black",
+  "stratified_sampling": true,
+  "ray_sampling": "all_images",
+  "nerf": {"levels_xyz": 6, "levels_dir": 4, "hidden_dim": 256},
+  "gaussian": {"initial_scale": 0.01, "initial_opacity": 0.1, "max_gaussians": 512, "densify_every": 0}
+}
